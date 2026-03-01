@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   description: "Track Every Prop Firm. One Unified Dashboard.",
 };
 
+const propFirms = [
+  "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
+  "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
+  "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
+  "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
+  "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
+  "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: '#0b0d14' }}>
@@ -137,32 +146,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Section */}
+      {/* Platform Section - Carousel */}
       <section id="platform" className="py-16 px-6" style={{ background: '#0f121c' }}>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-10">
             <span className="text-white/50 text-sm font-medium">01.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
           </div>
-          <div 
-            className="p-6 rounded-xl"
-            style={{ background: '#111320' }}
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {[
-                "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
-                "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
-                "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
-                "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
-                "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
-                "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
-              ].map((firm) => (
-                <div key={firm} className="flex items-center justify-between p-3 rounded-lg" style={{ background: '#0b0d14' }}>
-                  <span className="text-white text-sm font-medium">{firm}</span>
-                  <span className="text-lg" style={{ color: '#00f5c4' }}>✓</span>
+          
+          {/* Horizontal Carousel */}
+          <div className="relative">
+            <div 
+              className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide"
+              style={{ 
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              {/* Duplicate firms for seamless infinite scroll effect */}
+              {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+                <div 
+                  key={`${firm}-${idx}`}
+                  className="flex-shrink-0 px-6 py-4 rounded-xl flex items-center gap-3"
+                  style={{ 
+                    background: '#111320',
+                    minWidth: '220px'
+                  }}
+                >
+                  <span className="text-white font-medium whitespace-nowrap">{firm}</span>
+                  <span style={{ color: '#00f5c4' }}>✓</span>
                 </div>
               ))}
             </div>
+            
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 pointer-events-none" style={{ background: 'linear-gradient(to right, #0f121c, transparent)' }}></div>
+            <div className="absolute right-0 top-0 bottom-0 w-12 pointer-events-none" style={{ background: 'linear-gradient(to left, #0f121c, transparent)' }}></div>
           </div>
         </div>
       </section>
