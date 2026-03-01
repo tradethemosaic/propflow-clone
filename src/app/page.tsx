@@ -7,13 +7,30 @@ export const metadata: Metadata = {
   description: "Track Every Prop Firm. One Unified Dashboard.",
 };
 
+// Prop firms with their logos (using colored initials as logos since we can't fetch actual images)
 const propFirms = [
-  "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
-  "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
-  "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
-  "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
-  "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
-  "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
+  { name: "TOPSTEP", color: "#22c55e" },
+  { name: "APEX TRADER FUNDING", color: "#f59e0b" },
+  { name: "TAKE PROFIT TRADER", color: "#3b82f6" },
+  { name: "FUNDEDNEXT", color: "#8b5cf6" },
+  { name: "BLUSKY", color: "#06b6d4" },
+  { name: "BULENOX", color: "#ef4444" },
+  { name: "ELITE TRADER FUNDING", color: "#10b981" },
+  { name: "FUNDED FUTURES", color: "#f97316" },
+  { name: "LEGENDS TRADING", color: "#ec4899" },
+  { name: "LUCID TRADING", color: "#6366f1" },
+  { name: "MY FUNDED FUTURES", color: "#14b8a6" },
+  { name: "PHIDIAS", color: "#a855f7" },
+  { name: "PROPSHOPTRADER", color: "#0ea5e9" },
+  { name: "PURDIA", color: "#84cc16" },
+  { name: "TENACITY TRADING", color: "#f43f5e" },
+  { name: "THE FUTURES DESK", color: "#eab308" },
+  { name: "TICK TICK TRADER", color: "#22d3ee" },
+  { name: "TOP ONE FUTURES", color: "#818cf8" },
+  { name: "TRADEIFY", color: "#34d399" },
+  { name: "ALPHA FUTURES", color: "#fb7185" },
+  { name: "FAST TRACK TRADING", color: "#fbbf24" },
+  { name: "FUNDING TICKS", color: "#c084fc" },
 ];
 
 export default function Home() {
@@ -146,42 +163,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Section - Carousel */}
-      <section id="platform" className="py-16 px-6" style={{ background: '#0f121c' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10">
-            <span className="text-white/50 text-sm font-medium">01.</span>
-            <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
-          </div>
+      {/* Platform Section - Auto-Scrolling Carousel */}
+      <section id="platform" className="py-16 px-0" style={{ background: '#0f121c', overflow: 'hidden' }}>
+        <div className="max-w-7xl mx-auto mb-10 px-6">
+          <span className="text-white/50 text-sm font-medium">01.</span>
+          <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
+        </div>
+        
+        {/* Auto-scrolling carousel container */}
+        <div className="relative w-full" style={{ background: '#0f121c' }}>
+          {/* Gradient fade left */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0f121c, transparent)' }}></div>
           
-          {/* Horizontal Carousel */}
-          <div className="relative">
-            <div 
-              className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide"
-              style={{ 
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-              }}
-            >
-              {/* Duplicate firms for seamless infinite scroll effect */}
-              {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+          {/* Gradient fade right */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0f121c, transparent)' }}></div>
+          
+          {/* Scrolling track */}
+          <div className="carousel-track">
+            {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+              <div 
+                key={`${firm.name}-${idx}`}
+                className="carousel-item flex-shrink-0 mx-3"
+              >
                 <div 
-                  key={`${firm}-${idx}`}
-                  className="flex-shrink-0 px-6 py-4 rounded-xl flex items-center gap-3"
+                  className="px-5 py-3 rounded-xl flex items-center gap-3"
                   style={{ 
                     background: '#111320',
-                    minWidth: '220px'
+                    minWidth: '180px'
                   }}
                 >
-                  <span className="text-white font-medium whitespace-nowrap">{firm}</span>
-                  <span style={{ color: '#00f5c4' }}>✓</span>
+                  {/* Logo circle with initials */}
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: firm.color + '20' }}
+                  >
+                    <span 
+                      className="text-sm font-bold"
+                      style={{ color: firm.color }}
+                    >
+                      {firm.name.split(' ').map(w => w[0]).join('').slice(0,2)}
+                    </span>
+                  </div>
+                  <span className="text-white font-medium text-sm whitespace-nowrap">{firm.name}</span>
                 </div>
-              ))}
-            </div>
-            
-            {/* Fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 pointer-events-none" style={{ background: 'linear-gradient(to right, #0f121c, transparent)' }}></div>
-            <div className="absolute right-0 top-0 bottom-0 w-12 pointer-events-none" style={{ background: 'linear-gradient(to left, #0f121c, transparent)' }}></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
