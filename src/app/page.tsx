@@ -14,7 +14,6 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-[#1e1e2e]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* Mosaic Logo */}
             <div className="relative w-10 h-10">
               <Image 
                 src="/logo.png" 
@@ -27,9 +26,10 @@ export default function Home() {
             <span className="font-semibold text-xl tracking-widest">MOSAIC</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#platform" className="nav-link">Platform</a>
-            <a href="#features" className="nav-link">Features</a>
-            <a href="#pricing" className="nav-link">Pricing</a>
+            <a href="#platform" className="nav-link">01. Platform</a>
+            <a href="#meet" className="nav-link">02. Meet Mosaic</a>
+            <a href="#analytics" className="nav-link">Analytics</a>
+            <a href="#pricing" className="nav-link">03. Pricing</a>
             <button className="accent-bg text-black px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
               Get Started
             </button>
@@ -59,12 +59,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Prop Firms Grid */}
-      <section className="py-16 px-6 border-t border-[#1e1e2e]">
+      {/* Platform Section */}
+      <section id="platform" className="py-16 px-6 border-t border-[#1e1e2e]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Supported Prop Firms</h2>
-            <p className="text-[#a0a0a0]">Track performance across all major prop trading firms</p>
+            <span className="text-[#00f5c4] text-sm font-medium">01. PLATFORM</span>
+            <h2 className="text-3xl font-bold mt-2">One Unified Dashboard</h2>
           </div>
           <div className="prop-firm-grid">
             {[
@@ -78,7 +78,7 @@ export default function Home() {
               <div key={firm} className="prop-card">
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{firm}</span>
-                  <span className="text-xs text-[#a0a0a0]">Active</span>
+                  <span className="text-xs text-[#00f5c4]">Live</span>
                 </div>
               </div>
             ))}
@@ -86,35 +86,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-20 px-6 bg-[#0d0d12]">
+      {/* Meet Mosaic Section */}
+      <section id="meet" className="py-20 px-6 bg-[#0d0d12]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Everything You Need</h2>
-            <p className="text-[#a0a0a0] text-lg">Institutional-grade tools for prop traders</p>
+            <span className="text-[#00f5c4] text-sm font-medium">02. MEET MOSAIC</span>
+            <h2 className="text-4xl font-bold mt-2">Institutional-Grade Trading Analytics</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="feature-card">
-              <div className="text-4xl mb-4">📊</div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
+                <span className="text-[#00f5c4]">●</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Real-Time Sync</h3>
+              <p className="text-[#a0a0a0]">Connect your prop firm accounts via Plaid for live data synchronization.</p>
+            </div>
+            <div className="feature-card">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
+                <span className="text-[#00f5c4]">●</span>
+              </div>
               <h3 className="text-xl font-semibold mb-3">Analytics Live</h3>
               <p className="text-[#a0a0a0]">Real-time tracking of your prop firm accounts with live performance metrics.</p>
             </div>
             <div className="feature-card">
-              <div className="text-4xl mb-4">🖥️</div>
-              <h3 className="text-xl font-semibold mb-3">Platform</h3>
-              <p className="text-[#a0a0a0]">Unified dashboard connecting all your prop firm accounts in one place.</p>
-            </div>
-            <div className="feature-card">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-semibold mb-3">Pricing</h3>
-              <p className="text-[#a0a0a0]">Simple, transparent pricing. No hidden fees. Cancel anytime.</p>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
+                <span className="text-[#00f5c4]">●</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Unified Reporting</h3>
+              <p className="text-[#a0a0a0]">One dashboard to rule them all. All your accounts, one view.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 px-6 border-y border-[#1e1e2e]">
+      {/* Analytics Section */}
+      <section id="analytics" className="py-20 px-6 border-y border-[#1e1e2e]">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -130,19 +139,19 @@ export default function Home() {
               <div className="text-[#a0a0a0]">Tracked</div>
             </div>
             <div>
-              <div className="text-4xl font-bold accent mb-2"></div>
-              <div className="text-[#99.9%a0a0a0]">Uptime</div>
+              <div className="text-4xl font-bold accent mb-2">99.9%</div>
+              <div className="text-[#a0a0a0]">Uptime</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Pricing Section */}
       <section id="pricing" className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Simple Pricing</h2>
-            <p className="text-[#a0a0a0]">Start free, upgrade when you need more</p>
+            <span className="text-[#00f5c4] text-sm font-medium">03. PRICING</span>
+            <h2 className="text-4xl font-bold mt-2">Simple, Transparent Pricing</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="prop-card p-8">
