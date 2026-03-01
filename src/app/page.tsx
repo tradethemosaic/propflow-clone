@@ -8,29 +8,29 @@ export const metadata: Metadata = {
 };
 
 const propFirms = [
-  { name: "Topstep", color: "#22c55e" },
-  { name: "Apex Trader Funding", color: "#f59e0b" },
-  { name: "Take Profit Trader", color: "#3b82f6" },
-  { name: "FundedNext", color: "#8b5cf6" },
-  { name: "BluSky", color: "#06b6d4" },
-  { name: "Bulenox", color: "#ef4444" },
-  { name: "Elite Trader Funding", color: "#10b981" },
-  { name: "Funded Futures Family", color: "#f97316" },
-  { name: "Funded Futures Network", color: "#ec4899" },
-  { name: "Legends Trading", color: "#6366f1" },
-  { name: "Lucid Trading", color: "#14b8a6" },
-  { name: "My Funded Futures", color: "#a855f7" },
-  { name: "Phidias", color: "#0ea5e9" },
-  { name: "PropShopTrader", color: "#84cc16" },
-  { name: "Purda", color: "#f43f5e" },
-  { name: "Tenacity Trading", color: "#eab308" },
-  { name: "The Futures Desk", color: "#22d3ee" },
-  { name: "TickTick Trader", color: "#818cf8" },
-  { name: "Top One Futures", color: "#34d399" },
-  { name: "Tradeify", color: "#fb7185" },
-  { name: "Alpha Futures", color: "#fbbf24" },
-  { name: "Fast Track Trading", color: "#c084fc" },
-  { name: "FundingTicks", color: "#f472b6" },
+  { name: "Topstep", color: "#22c55e", logo: "/logo-topstep.png" },
+  { name: "Apex Trader Funding", color: "#f59e0b", logo: "/logo-apex.png" },
+  { name: "Take Profit Trader", color: "#3b82f6", logo: null },
+  { name: "FundedNext", color: "#8b5cf6", logo: null },
+  { name: "BluSky", color: "#06b6d4", logo: null },
+  { name: "Bulenox", color: "#ef4444", logo: null },
+  { name: "Elite Trader Funding", color: "#10b981", logo: null },
+  { name: "Funded Futures Family", color: "#f97316", logo: null },
+  { name: "Funded Futures Network", color: "#ec4899", logo: null },
+  { name: "Legends Trading", color: "#6366f1", logo: null },
+  { name: "Lucid Trading", color: "#14b8a6", logo: null },
+  { name: "My Funded Futures", color: "#a855f7", logo: "/logo-myfundedfuture.png" },
+  { name: "Phidias", color: "#0ea5e9", logo: null },
+  { name: "PropShopTrader", color: "#84cc16", logo: null },
+  { name: "Purda", color: "#f43f5e", logo: null },
+  { name: "Tenacity Trading", color: "#eab308", logo: null },
+  { name: "The Futures Desk", color: "#22d3ee", logo: null },
+  { name: "TickTick Trader", color: "#818cf8", logo: null },
+  { name: "Top One Futures", color: "#34d399", logo: null },
+  { name: "Tradeify", color: "#fb7185", logo: "/logo-tradeify.png" },
+  { name: "Alpha Futures", color: "#fbbf24", logo: null },
+  { name: "Fast Track Trading", color: "#c084fc", logo: null },
+  { name: "FundingTicks", color: "#f472b6", logo: null },
 ];
 
 export default function Home() {
@@ -119,9 +119,20 @@ export default function Home() {
             {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
               <div key={`${firm.name}-${idx}`} className="carousel-item flex-shrink-0 mx-4">
                 <div className="flex items-center gap-3 px-5 py-2.5 rounded-full" style={{ background: '#1a1d2e', minWidth: 'auto' }}>
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: firm.color + '20', color: firm.color }}>
-                    {firm.name.charAt(0)}
-                  </div>
+                  {firm.logo ? (
+                    <Image 
+                      src={firm.logo} 
+                      alt={firm.name} 
+                      width={24} 
+                      height={24}
+                      className="rounded"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: firm.color + '20', color: firm.color }}>
+                      {firm.name.charAt(0)}
+                    </div>
+                  )}
                   <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
                   <span style={{ color: '#22c55e' }}>✓</span>
                 </div>
