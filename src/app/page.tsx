@@ -54,8 +54,33 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* Auto-Scrolling Prop Firms - Above Hero */}
+      <section className="pt-20" style={{ background: '#0b0d14', overflow: 'hidden' }}>
+        <div className="relative w-full py-4">
+          {/* Gradient fade left */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0b0d14, transparent)' }}></div>
+          {/* Gradient fade right */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0b0d14, transparent)' }}></div>
+          
+          {/* Scrolling track */}
+          <div className="carousel-track">
+            {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+              <div key={`${firm.name}-${idx}`} className="carousel-item flex-shrink-0 mx-4">
+                <div className="flex items-center gap-3 px-5 py-2.5 rounded-full" style={{ background: '#1a1d2e', minWidth: 'auto' }}>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: firm.color + '20', color: firm.color }}>
+                    {firm.name.charAt(0)}
+                  </div>
+                  <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
+                  <span style={{ color: '#22c55e' }}>✓</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section - Phone on Left, Text on Right */}
-      <section className="pt-24 pb-16 px-6" style={{ background: '#0b0d14' }}>
+      <section className="pt-16 pb-16 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
@@ -168,72 +193,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Section - Horizontal List */}
+      {/* Platform Section */}
       <section id="platform" className="py-10 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <span className="text-white/50 text-sm font-medium">01.</span>
-              <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
-            </div>
-            <button className="text-sm text-white/60 hover:text-white transition flex items-center gap-2">
-              View all →
-            </button>
+          <div className="mb-8">
+            <span className="text-white/50 text-sm font-medium">01.</span>
+            <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
           </div>
+        </div>
+      </section>
+
+      {/* Automate Your Trading Analytics */}
+      <section className="py-12 px-6" style={{ background: '#0b0d14' }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-8">Automate your entire trading analytics</h2>
           
-          {/* Horizontal list of firms */}
-          <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
-            {propFirms.map((firm, idx) => (
-              <div 
-                key={idx}
-                className="flex-shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl"
-                style={{ 
-                  background: '#111320',
-                  minWidth: '200px'
-                }}
-              >
-                {/* Logo circle */}
-                <div 
-                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-xs"
-                  style={{ 
-                    background: firm.color + '20',
-                    color: firm.color
-                  }}
-                >
-                  {firm.name.charAt(0)}
+          <div className="grid md:grid-cols-3 gap-4">
+            {/* Analytics */}
+            <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#00f5c420' }}>
+                  <span style={{ color: '#00f5c4' }}>📊</span>
                 </div>
-                <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
-                <span style={{ color: '#22c55e' }} className="text-sm ml-auto">✓</span>
+                <div>
+                  <div className="text-white font-semibold">Analytics</div>
+                  <div className="text-white/50 text-xs">Real-time data</div>
+                </div>
               </div>
-            ))}
+              <p className="text-white/60 text-sm">
+                Track all your prop firm accounts in one place with real-time analytics and performance metrics.
+              </p>
+            </div>
+            
+            {/* Live Trading */}
+            <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#22c55e20' }}>
+                  <span style={{ color: '#22c55e' }}>⚡</span>
+                </div>
+                <div>
+                  <div className="text-white font-semibold">Live Trading</div>
+                  <div className="text-white/50 text-xs">Real-time sync</div>
+                </div>
+              </div>
+              <p className="text-white/60 text-sm">
+                Connect your accounts via Plaid for live data synchronization across all platforms.
+              </p>
+            </div>
+            
+            {/* API */}
+            <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#3b82f620' }}>
+                  <span style={{ color: '#3b82f6' }}>🔌</span>
+                </div>
+                <div>
+                  <div className="text-white font-semibold">API</div>
+                  <div className="text-white/50 text-xs">Developer access</div>
+                </div>
+              </div>
+              <p className="text-white/60 text-sm">
+                Build custom integrations and automate your trading workflow with our powerful API.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Meet Mosaic Section */}
-      <section id="meet" className="py-12 px-6" style={{ background: '#0b0d14' }}>
+      <section id="meet" className="py-12 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <span className="text-white/50 text-sm font-medium">02.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Meet Mosaic</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
-            {/* Analytics Live */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-white font-semibold">Analytics Live</span>
                 <span className="text-xs font-medium px-2 py-1 rounded" style={{ background: '#22c55e20', color: '#22c55e' }}>Live</span>
               </div>
             </div>
-            {/* Live */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-white font-semibold">Live</span>
                 <span className="text-xs font-medium px-2 py-1 rounded" style={{ background: '#22c55e20', color: '#22c55e' }}>Live</span>
               </div>
             </div>
-            {/* Plaid */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-white font-semibold">Plaid</span>
@@ -245,14 +291,13 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-12 px-6" style={{ background: '#0f121c' }}>
+      <section id="pricing" className="py-12 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <span className="text-white/50 text-sm font-medium">03.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Pricing</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Free */}
             <div className="p-6 rounded-xl" style={{ background: '#111320' }}>
               <h3 className="text-lg font-semibold text-white mb-2">Free</h3>
               <div className="mb-4">
@@ -260,21 +305,14 @@ export default function Home() {
                 <span className="text-white/50">/mo</span>
               </div>
               <ul className="text-white/70 text-sm space-y-2 mb-6">
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> 2 Prop Firms
-                </li>
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> Basic Analytics
-                </li>
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> Email Support
-                </li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> 2 Prop Firms</li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Basic Analytics</li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Email Support</li>
               </ul>
               <button className="w-full py-2.5 rounded-lg font-medium text-white hover:bg-white/10 transition text-sm" style={{ border: '1px solid #2a2f45' }}>
                 Get Started
               </button>
             </div>
-            {/* Pro */}
             <div className="p-6 rounded-xl" style={{ background: '#111320', border: '1px solid #00f5c4' }}>
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold text-white">Pro</h3>
@@ -285,18 +323,10 @@ export default function Home() {
                 <span className="text-white/50">/mo</span>
               </div>
               <ul className="text-white/70 text-sm space-y-2 mb-6">
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> Unlimited Firms
-                </li>
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> Advanced Analytics
-                </li>
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> Priority Support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span style={{ color: '#00f5c4' }}>✓</span> API Access
-                </li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Unlimited Firms</li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Advanced Analytics</li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Priority Support</li>
+                <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> API Access</li>
               </ul>
               <button className="w-full py-2.5 rounded-lg font-medium text-black hover:opacity-90 transition text-sm" style={{ background: '#00f5c4' }}>
                 Start Free Trial
@@ -307,21 +337,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 px-6" style={{ background: '#0b0d14', borderTop: '1px solid #1a1d2e' }}>
+      <footer className="py-6 px-6" style={{ background: '#0f121c', borderTop: '1px solid #1a1d2e' }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="text-white/50 text-sm">
             © 2026 Mosaic. All rights reserved.
           </div>
-          {/* Watermark */}
           <div className="flex items-center gap-3">
             <span className="text-white/30 text-sm">Powered by</span>
-            <Image 
-              src="/mosaic-watermark.png" 
-              alt="Mosaic" 
-              width={80} 
-              height={24}
-              className="h-auto"
-            />
+            <Image src="/mosaic-watermark.png" alt="Mosaic" width={80} height={24} className="h-auto" />
           </div>
         </div>
       </footer>
