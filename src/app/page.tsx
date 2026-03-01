@@ -318,9 +318,20 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-6" style={{ background: '#0b0d14', borderTop: '1px solid #1a1d2e' }}>
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="text-white/50 text-sm">
             © 2026 Mosaic. All rights reserved.
+          </div>
+          {/* Watermark */}
+          <div className="flex items-center gap-3">
+            <span className="text-white/30 text-sm">Powered by</span>
+            <Image 
+              src="/mosaic-watermark.png" 
+              alt="Mosaic" 
+              width={100} 
+              height={30}
+              className="h-auto"
+            />
           </div>
         </div>
       </footer>
