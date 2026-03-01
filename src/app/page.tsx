@@ -7,30 +7,30 @@ export const metadata: Metadata = {
   description: "Track Every Prop Firm. One Unified Dashboard.",
 };
 
-// Prop firms with their logos (using colored initials as logos since we can't fetch actual images)
+// Prop firms with SVG logos
 const propFirms = [
-  { name: "TOPSTEP", color: "#22c55e" },
-  { name: "APEX TRADER FUNDING", color: "#f59e0b" },
-  { name: "TAKE PROFIT TRADER", color: "#3b82f6" },
-  { name: "FUNDEDNEXT", color: "#8b5cf6" },
-  { name: "BLUSKY", color: "#06b6d4" },
-  { name: "BULENOX", color: "#ef4444" },
-  { name: "ELITE TRADER FUNDING", color: "#10b981" },
-  { name: "FUNDED FUTURES", color: "#f97316" },
-  { name: "LEGENDS TRADING", color: "#ec4899" },
-  { name: "LUCID TRADING", color: "#6366f1" },
-  { name: "MY FUNDED FUTURES", color: "#14b8a6" },
-  { name: "PHIDIAS", color: "#a855f7" },
-  { name: "PROPSHOPTRADER", color: "#0ea5e9" },
-  { name: "PURDIA", color: "#84cc16" },
-  { name: "TENACITY TRADING", color: "#f43f5e" },
-  { name: "THE FUTURES DESK", color: "#eab308" },
-  { name: "TICK TICK TRADER", color: "#22d3ee" },
-  { name: "TOP ONE FUTURES", color: "#818cf8" },
-  { name: "TRADEIFY", color: "#34d399" },
-  { name: "ALPHA FUTURES", color: "#fb7185" },
-  { name: "FAST TRACK TRADING", color: "#fbbf24" },
-  { name: "FUNDING TICKS", color: "#c084fc" },
+  { name: "TOPSTEP", color: "#22c55e", icon: "T" },
+  { name: "APEX TRADER", color: "#f59e0b", icon: "A" },
+  { name: "TAKE PROFIT", color: "#3b82f6", icon: "T" },
+  { name: "FUNDEDNEXT", color: "#8b5cf6", icon: "F" },
+  { name: "BLUSKY", color: "#06b6d4", icon: "B" },
+  { name: "BULENOX", color: "#ef4444", icon: "B" },
+  { name: "ELITE", color: "#10b981", icon: "E" },
+  { name: "FUNDED FUTURES", color: "#f97316", icon: "F" },
+  { name: "LEGENDS", color: "#ec4899", icon: "L" },
+  { name: "LUCID", color: "#6366f1", icon: "L" },
+  { name: "MY FUNDED", color: "#14b8a6", icon: "M" },
+  { name: "PHIDIAS", color: "#a855f7", icon: "P" },
+  { name: "PROPSHOP", color: "#0ea5e9", icon: "P" },
+  { name: "PURDIA", color: "#84cc16", icon: "P" },
+  { name: "TENACITY", color: "#f43f5e", icon: "T" },
+  { name: "FUTURES DESK", color: "#eab308", icon: "F" },
+  { name: "TICKTICK", color: "#22d3ee", icon: "T" },
+  { name: "TOP ONE", color: "#818cf8", icon: "T" },
+  { name: "TRADEIFY", color: "#34d399", icon: "T" },
+  { name: "ALPHA", color: "#fb7185", icon: "A" },
+  { name: "FAST TRACK", color: "#fbbf24", icon: "F" },
+  { name: "FUNDING TICKS", color: "#c084fc", icon: "F" },
 ];
 
 export default function Home() {
@@ -163,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Section - Auto-Scrolling Carousel */}
+      {/* Platform Section - Auto-Scrolling Carousel with Logos */}
       <section id="platform" className="py-16 px-0" style={{ background: '#0f121c', overflow: 'hidden' }}>
         <div className="max-w-7xl mx-auto mb-10 px-6">
           <span className="text-white/50 text-sm font-medium">01.</span>
@@ -189,20 +189,19 @@ export default function Home() {
                   className="px-5 py-3 rounded-xl flex items-center gap-3"
                   style={{ 
                     background: '#111320',
-                    minWidth: '180px'
+                    minWidth: '160px'
                   }}
                 >
-                  {/* Logo circle with initials */}
+                  {/* Logo with brand color */}
                   <div 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: firm.color + '20' }}
+                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-sm"
+                    style={{ 
+                      background: firm.color + '20',
+                      color: firm.color,
+                      border: `1px solid ${firm.color}40`
+                    }}
                   >
-                    <span 
-                      className="text-sm font-bold"
-                      style={{ color: firm.color }}
-                    >
-                      {firm.name.split(' ').map(w => w[0]).join('').slice(0,2)}
-                    </span>
+                    {firm.icon}
                   </div>
                   <span className="text-white font-medium text-sm whitespace-nowrap">{firm.name}</span>
                 </div>
