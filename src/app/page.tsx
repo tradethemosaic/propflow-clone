@@ -54,56 +54,16 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Auto-Scrolling Prop Firms - Above Hero */}
-      <section className="pt-20" style={{ background: '#0b0d14', overflow: 'hidden' }}>
-        <div className="relative w-full py-4">
-          {/* Gradient fade left */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0b0d14, transparent)' }}></div>
-          {/* Gradient fade right */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0b0d14, transparent)' }}></div>
-          
-          {/* Scrolling track */}
-          <div className="carousel-track">
-            {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
-              <div key={`${firm.name}-${idx}`} className="carousel-item flex-shrink-0 mx-4">
-                <div className="flex items-center gap-3 px-5 py-2.5 rounded-full" style={{ background: '#1a1d2e', minWidth: 'auto' }}>
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: firm.color + '20', color: firm.color }}>
-                    {firm.name.charAt(0)}
-                  </div>
-                  <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
-                  <span style={{ color: '#22c55e' }}>✓</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Hero Section - Phone on Left, Text on Right */}
-      <section className="pt-16 pb-16 px-6" style={{ background: '#0b0d14' }}>
+      <section className="pt-24 pb-10 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left - Phone Mockup */}
             <div className="flex justify-center lg:justify-start order-2 lg:order-1">
               <div className="relative">
-                {/* Phone Frame */}
-                <div 
-                  className="rounded-[40px] p-3"
-                  style={{ 
-                    background: '#1a1d2e',
-                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-                  }}
-                >
-                  <div 
-                    className="rounded-[32px] overflow-hidden"
-                    style={{ 
-                      background: '#111320',
-                      width: '280px',
-                      height: '560px'
-                    }}
-                  >
-                    {/* App Header */}
+                <div className="rounded-[40px] p-3" style={{ background: '#1a1d2e', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+                  <div className="rounded-[32px] overflow-hidden" style={{ background: '#111320', width: '280px', height: '560px' }}>
                     <div className="p-4 pt-8" style={{ borderBottom: '1px solid #1a1d2e' }}>
                       <div className="flex items-center justify-between mb-4">
                         <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#00f5c420' }}>
@@ -114,8 +74,6 @@ export default function Home() {
                       <div className="text-white/40 text-xs">Total P&L</div>
                       <div className="text-2xl font-bold text-white">$12,450</div>
                     </div>
-                    
-                    {/* Account Cards */}
                     <div className="p-3 space-y-2">
                       <div className="p-3 rounded-xl" style={{ background: '#0b0d14' }}>
                         <div className="flex items-center justify-between">
@@ -136,31 +94,17 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Mini Chart */}
                     <div className="px-3 pb-3">
                       <div className="p-3 rounded-xl" style={{ background: '#0b0d14' }}>
                         <div className="flex items-end gap-1 h-16">
                           {[30, 45, 35, 50, 40, 60, 55, 70, 65, 80, 75, 90].map((h, i) => (
-                            <div 
-                              key={i} 
-                              className="flex-1 rounded-sm"
-                              style={{ 
-                                height: `${h}%`, 
-                                background: i > 7 ? '#00f5c4' : '#22c55e',
-                                opacity: 0.9
-                              }}
-                            ></div>
+                            <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i > 7 ? '#00f5c4' : '#22c55e', opacity: 0.9 }}></div>
                           ))}
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Bottom Nav */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-around" style={{ background: '#0b0d14', borderTop: '1px solid #1a1d2e' }}>
-                      <div className="w-6 h-6 rounded flex items-center justify-center" style={{ background: '#00f5c420' }}>
-                        <span style={{ color: '#00f5c4' }}>◆</span>
-                      </div>
+                      <div className="w-6 h-6 rounded flex items-center justify-center" style={{ background: '#00f5c420' }}><span style={{ color: '#00f5c4' }}>◆</span></div>
                       <div className="w-6 h-6 rounded flex items-center justify-center text-white/30">□</div>
                       <div className="w-6 h-6 rounded flex items-center justify-center text-white/30">○</div>
                       <div className="w-6 h-6 rounded flex items-center justify-center text-white/30">☺</div>
@@ -193,12 +137,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Supported Firms - Auto-Scrolling */}
+      <section className="py-8" style={{ background: '#0b0d14', overflow: 'hidden' }}>
+        <div className="max-w-7xl mx-auto px-6 mb-4">
+          <h3 className="text-white/50 text-sm font-medium">Supported Firms</h3>
+        </div>
+        <div className="relative w-full py-2">
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0b0d14, transparent)' }}></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0b0d14, transparent)' }}></div>
+          <div className="carousel-track">
+            {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+              <div key={`${firm.name}-${idx}`} className="carousel-item flex-shrink-0 mx-4">
+                <div className="flex items-center gap-3 px-5 py-2.5 rounded-full" style={{ background: '#1a1d2e', minWidth: 'auto' }}>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: firm.color + '20', color: firm.color }}>
+                    {firm.name.charAt(0)}
+                  </div>
+                  <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
+                  <span style={{ color: '#22c55e' }}>✓</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Platform Section */}
       <section id="platform" className="py-10 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <span className="text-white/50 text-sm font-medium">01.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
+          </div>
+          
+          {/* Dashboard Image */}
+          <div className="rounded-xl overflow-hidden" style={{ background: '#111320' }}>
+            <Image 
+              src="/hero-dashboard.png" 
+              alt="Dashboard" 
+              width={1600} 
+              height={900}
+              className="w-full h-auto"
+              unoptimized
+            />
           </div>
         </div>
       </section>
@@ -207,54 +187,36 @@ export default function Home() {
       <section className="py-12 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-8">Automate your entire trading analytics</h2>
-          
           <div className="grid md:grid-cols-3 gap-4">
-            {/* Analytics */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#00f5c420' }}>
-                  <span style={{ color: '#00f5c4' }}>📊</span>
-                </div>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#00f5c420' }}><span style={{ color: '#00f5c4' }}>📊</span></div>
                 <div>
                   <div className="text-white font-semibold">Analytics</div>
                   <div className="text-white/50 text-xs">Real-time data</div>
                 </div>
               </div>
-              <p className="text-white/60 text-sm">
-                Track all your prop firm accounts in one place with real-time analytics and performance metrics.
-              </p>
+              <p className="text-white/60 text-sm">Track all your prop firm accounts in one place with real-time analytics.</p>
             </div>
-            
-            {/* Live Trading */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#22c55e20' }}>
-                  <span style={{ color: '#22c55e' }}>⚡</span>
-                </div>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#22c55e20' }}><span style={{ color: '#22c55e' }}>⚡</span></div>
                 <div>
                   <div className="text-white font-semibold">Live Trading</div>
                   <div className="text-white/50 text-xs">Real-time sync</div>
                 </div>
               </div>
-              <p className="text-white/60 text-sm">
-                Connect your accounts via Plaid for live data synchronization across all platforms.
-              </p>
+              <p className="text-white/60 text-sm">Connect your accounts via Plaid for live data synchronization.</p>
             </div>
-            
-            {/* API */}
             <div className="p-5 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#3b82f620' }}>
-                  <span style={{ color: '#3b82f6' }}>🔌</span>
-                </div>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#3b82f620' }}><span style={{ color: '#3b82f6' }}>🔌</span></div>
                 <div>
                   <div className="text-white font-semibold">API</div>
                   <div className="text-white/50 text-xs">Developer access</div>
                 </div>
               </div>
-              <p className="text-white/60 text-sm">
-                Build custom integrations and automate your trading workflow with our powerful API.
-              </p>
+              <p className="text-white/60 text-sm">Build custom integrations with our powerful API.</p>
             </div>
           </div>
         </div>
@@ -300,37 +262,27 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 rounded-xl" style={{ background: '#111320' }}>
               <h3 className="text-lg font-semibold text-white mb-2">Free</h3>
-              <div className="mb-4">
-                <span className="text-3xl font-bold text-white">$0</span>
-                <span className="text-white/50">/mo</span>
-              </div>
+              <div className="mb-4"><span className="text-3xl font-bold text-white">$0</span><span className="text-white/50">/mo</span></div>
               <ul className="text-white/70 text-sm space-y-2 mb-6">
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> 2 Prop Firms</li>
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Basic Analytics</li>
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Email Support</li>
               </ul>
-              <button className="w-full py-2.5 rounded-lg font-medium text-white hover:bg-white/10 transition text-sm" style={{ border: '1px solid #2a2f45' }}>
-                Get Started
-              </button>
+              <button className="w-full py-2.5 rounded-lg font-medium text-white hover:bg-white/10 transition text-sm" style={{ border: '1px solid #2a2f45' }}>Get Started</button>
             </div>
             <div className="p-6 rounded-xl" style={{ background: '#111320', border: '1px solid #00f5c4' }}>
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold text-white">Pro</h3>
                 <span className="px-2 py-1 rounded text-xs font-medium text-black" style={{ background: '#00f5c4' }}>POPULAR</span>
               </div>
-              <div className="mb-4">
-                <span className="text-3xl font-bold" style={{ color: '#00f5c4' }}>$19</span>
-                <span className="text-white/50">/mo</span>
-              </div>
+              <div className="mb-4"><span className="text-3xl font-bold" style={{ color: '#00f5c4' }}>$19</span><span className="text-white/50">/mo</span></div>
               <ul className="text-white/70 text-sm space-y-2 mb-6">
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Unlimited Firms</li>
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Advanced Analytics</li>
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> Priority Support</li>
                 <li className="flex items-center gap-2"><span style={{ color: '#00f5c4' }}>✓</span> API Access</li>
               </ul>
-              <button className="w-full py-2.5 rounded-lg font-medium text-black hover:opacity-90 transition text-sm" style={{ background: '#00f5c4' }}>
-                Start Free Trial
-              </button>
+              <button className="w-full py-2.5 rounded-lg font-medium text-black hover:opacity-90 transition text-sm" style={{ background: '#00f5c4' }}>Start Free Trial</button>
             </div>
           </div>
         </div>
@@ -339,9 +291,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-6 px-6" style={{ background: '#0f121c', borderTop: '1px solid #1a1d2e' }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="text-white/50 text-sm">
-            © 2026 Mosaic. All rights reserved.
-          </div>
+          <div className="text-white/50 text-sm">© 2026 Mosaic. All rights reserved.</div>
           <div className="flex items-center gap-3">
             <span className="text-white/30 text-sm">Powered by</span>
             <Image src="/mosaic-watermark.png" alt="Mosaic" width={80} height={24} className="h-auto" />
