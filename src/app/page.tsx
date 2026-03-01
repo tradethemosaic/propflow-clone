@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,16 +15,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Mosaic Logo */}
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00f5c4] to-[#00d4aa] flex items-center justify-center">
-              <svg viewBox="0 0 40 40" className="w-7 h-7">
-                <path fill="#0a0a0a" d="M8 8h24v24H8z"/>
-                <path fill="#0a0a0a" d="M12 12h16v16H12z"/>
-                <path fill="#0a0a0a" d="M16 16h8v8h-8z"/>
-                <path fill="#0a0a0a" d="M20 8v8h8v-8z"/>
-                <path fill="#0a0a0a" d="M8 20h8v8H8z"/>
-              </svg>
+            <div className="relative w-10 h-10">
+              <Image 
+                src="/logo.png" 
+                alt="Mosaic" 
+                width={40} 
+                height={40}
+                className="rounded-lg"
+              />
             </div>
-            <span className="font-semibold text-xl tracking-wide">MOSAIC</span>
+            <span className="font-semibold text-xl tracking-widest">MOSAIC</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#platform" className="nav-link">Platform</a>
@@ -129,8 +130,8 @@ export default function Home() {
               <div className="text-[#a0a0a0]">Tracked</div>
             </div>
             <div>
-              <div className="text-4xl font-bold accent mb-2">99.9%</div>
-              <div className="text-[#a0a0a0]">Uptime</div>
+              <div className="text-4xl font-bold accent mb-2"></div>
+              <div className="text-[#99.9%a0a0a0]">Uptime</div>
             </div>
           </div>
         </div>
@@ -180,16 +181,16 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-[#1e1e2e]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-[#00f5c4] to-[#00d4aa] flex items-center justify-center">
-              <svg viewBox="0 0 40 40" className="w-4 h-4">
-                <path fill="#0a0a0a" d="M8 8h24v24H8z"/>
-                <path fill="#0a0a0a" d="M12 12h16v16H12z"/>
-                <path fill="#0a0a0a" d="M16 16h8v8h-8z"/>
-                <path fill="#0a0a0a" d="M20 8v8h8v-8z"/>
-                <path fill="#0a0a0a" d="M8 20h8v8H8z"/>
-              </svg>
+            <div className="relative w-6 h-6">
+              <Image 
+                src="/logo.png" 
+                alt="Mosaic" 
+                width={24} 
+                height={24}
+                className="rounded"
+              />
             </div>
-            <span className="font-medium">MOSAIC</span>
+            <span className="font-medium tracking-widest">MOSAIC</span>
           </div>
           <div className="text-[#a0a0a0] text-sm">
             © 2026 Mosaic. All rights reserved.
