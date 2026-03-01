@@ -13,7 +13,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 300;
 }
 
 .accent {
@@ -74,7 +79,6 @@ body {
   font-weight: 500;
 }
 
-/* Hide scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -83,7 +87,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Auto-scrolling carousel */
 .carousel-track {
   display: flex;
   animation: scroll 40s linear infinite;
@@ -95,10 +98,6 @@ body {
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
 }
