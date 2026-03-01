@@ -9,28 +9,29 @@ export const metadata: Metadata = {
 
 // Prop firms with brand colors
 const propFirms = [
-  { name: "TOPSTEP", color: "#22c55e", icon: "T" },
-  { name: "APEX TRADER", color: "#f59e0b", icon: "A" },
-  { name: "TAKE PROFIT", color: "#3b82f6", icon: "T" },
-  { name: "FUNDEDNEXT", color: "#8b5cf6", icon: "F" },
-  { name: "BLUSKY", color: "#06b6d4", icon: "B" },
-  { name: "BULENOX", color: "#ef4444", icon: "B" },
-  { name: "ELITE", color: "#10b981", icon: "E" },
-  { name: "FUNDED FUTURES", color: "#f97316", icon: "F" },
-  { name: "LEGENDS", color: "#ec4899", icon: "L" },
-  { name: "LUCID", color: "#6366f1", icon: "L" },
-  { name: "MY FUNDED", color: "#14b8a6", icon: "M" },
-  { name: "PHIDIAS", color: "#a855f7", icon: "P" },
-  { name: "PROPSHOP", color: "#0ea5e9", icon: "P" },
-  { name: "PURDIA", color: "#84cc16", icon: "P" },
-  { name: "TENACITY", color: "#f43f5e", icon: "T" },
-  { name: "FUTURES DESK", color: "#eab308", icon: "F" },
-  { name: "TICKTICK", color: "#22d3ee", icon: "T" },
-  { name: "TOP ONE", color: "#818cf8", icon: "T" },
-  { name: "TRADEIFY", color: "#34d399", icon: "T" },
-  { name: "ALPHA", color: "#fb7185", icon: "A" },
-  { name: "FAST TRACK", color: "#fbbf24", icon: "F" },
-  { name: "FUNDING TICKS", color: "#c084fc", icon: "F" },
+  { name: "Topstep", color: "#22c55e" },
+  { name: "Apex Trader Funding", color: "#f59e0b" },
+  { name: "Take Profit Trader", color: "#3b82f6" },
+  { name: "FundedNext", color: "#8b5cf6" },
+  { name: "BluSky", color: "#06b6d4" },
+  { name: "Bulenox", color: "#ef4444" },
+  { name: "Elite Trader Funding", color: "#10b981" },
+  { name: "Funded Futures Family", color: "#f97316" },
+  { name: "Funded Futures Network", color: "#ec4899" },
+  { name: "Legends Trading", color: "#6366f1" },
+  { name: "Lucid Trading", color: "#14b8a6" },
+  { name: "My Funded Futures", color: "#a855f7" },
+  { name: "Phidias", color: "#0ea5e9" },
+  { name: "PropShopTrader", color: "#84cc16" },
+  { name: "Purda", color: "#f43f5e" },
+  { name: "Tenacity Trading", color: "#eab308" },
+  { name: "The Futures Desk", color: "#22d3ee" },
+  { name: "TickTick Trader", color: "#818cf8" },
+  { name: "Top One Futures", color: "#34d399" },
+  { name: "Tradeify", color: "#fb7185" },
+  { name: "Alpha Futures", color: "#fbbf24" },
+  { name: "Fast Track Trading", color: "#c084fc" },
+  { name: "FundingTicks", color: "#f472b6" },
 ];
 
 export default function Home() {
@@ -167,48 +168,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Section - Auto-Scrolling Carousel with Logos */}
-      <section id="platform" className="py-12 px-0" style={{ background: '#0f121c', overflow: 'hidden' }}>
-        <div className="max-w-7xl mx-auto mb-8 px-6">
-          <span className="text-white/50 text-sm font-medium">01.</span>
-          <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
-        </div>
-        
-        {/* Auto-scrolling carousel container */}
-        <div className="relative w-full" style={{ background: '#0f121c' }}>
-          {/* Gradient fade left */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #0f121c, transparent)' }}></div>
+      {/* Platform Section - Horizontal List */}
+      <section id="platform" className="py-10 px-6" style={{ background: '#0f121c' }}>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <span className="text-white/50 text-sm font-medium">01.</span>
+              <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
+            </div>
+            <button className="text-sm text-white/60 hover:text-white transition flex items-center gap-2">
+              View all →
+            </button>
+          </div>
           
-          {/* Gradient fade right */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #0f121c, transparent)' }}></div>
-          
-          {/* Scrolling track */}
-          <div className="carousel-track">
-            {[...propFirms, ...propFirms, ...propFirms].map((firm, idx) => (
+          {/* Horizontal list of firms */}
+          <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+            {propFirms.map((firm, idx) => (
               <div 
-                key={`${firm.name}-${idx}`}
-                className="carousel-item flex-shrink-0 mx-3"
+                key={idx}
+                className="flex-shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl"
+                style={{ 
+                  background: '#111320',
+                  minWidth: '200px'
+                }}
               >
+                {/* Logo circle */}
                 <div 
-                  className="px-5 py-3 rounded-xl flex items-center gap-3"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-xs"
                   style={{ 
-                    background: '#111320',
-                    minWidth: '160px'
+                    background: firm.color + '20',
+                    color: firm.color
                   }}
                 >
-                  {/* Logo with brand color */}
-                  <div 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-sm"
-                    style={{ 
-                      background: firm.color + '20',
-                      color: firm.color,
-                      border: `1px solid ${firm.color}40`
-                    }}
-                  >
-                    {firm.icon}
-                  </div>
-                  <span className="text-white font-medium text-sm whitespace-nowrap">{firm.name}</span>
+                  {firm.name.charAt(0)}
                 </div>
+                <span className="text-white text-sm whitespace-nowrap">{firm.name}</span>
+                <span style={{ color: '#22c55e' }} className="text-sm ml-auto">✓</span>
               </div>
             ))}
           </div>
@@ -216,9 +212,9 @@ export default function Home() {
       </section>
 
       {/* Meet Mosaic Section */}
-      <section id="meet" className="py-16 px-6" style={{ background: '#0b0d14' }}>
+      <section id="meet" className="py-12 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="mb-10">
+          <div className="mb-8">
             <span className="text-white/50 text-sm font-medium">02.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Meet Mosaic</h2>
           </div>
@@ -249,9 +245,9 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-16 px-6" style={{ background: '#0f121c' }}>
+      <section id="pricing" className="py-12 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-4xl mx-auto">
-          <div className="mb-10">
+          <div className="mb-8">
             <span className="text-white/50 text-sm font-medium">03.</span>
             <h2 className="text-2xl font-bold text-white mt-1">Pricing</h2>
           </div>
