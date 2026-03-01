@@ -1,46 +1,10 @@
-const propFirms = [
-  "ALPHA FUTURES",
-  "APEX TRADER FUNDING",
-  "BLUSKY",
-  "BULENOX",
-  "ELITE TRADER FUNDING",
-  "FAST TRACK TRADING",
-  "FUNDED FUTURES FAMILY",
-  "FUNDED FUTURES NETWORK",
-  "FUNDEDNEXT",
-  "FUNDINGTICKS",
-  "LEGENDS TRADING",
-  "LUCID TRADING",
-  "MY FUNDED FUTURES",
-  "PHIDIAS",
-  "PROPSHOPTRADER",
-  "PURDIA",
-  "TAKE PROFIT TRADER",
-  "TENACITY TRADING",
-  "THE FUTURES DESK",
-  "TICK TICK TRADER",
-  "TOP ONE FUTURES",
-  "TOPSTEP",
-  "TRADEIFY",
-];
+import type { Metadata } from "next";
+import "./globals.css";
 
-const features = [
-  {
-    title: "Analytics Live",
-    description: "Real-time tracking of your prop firm accounts with live performance metrics.",
-    icon: "📊",
-  },
-  {
-    title: "Platform",
-    description: "Unified dashboard connecting all your prop firm accounts in one place.",
-    icon: "🖥️",
-  },
-  {
-    title: "Pricing",
-    description: "Simple, transparent pricing. No hidden fees. Cancel anytime.",
-    icon: "💰",
-  },
-];
+export const metadata: Metadata = {
+  title: "Mosaic - Track Every Prop Firm",
+  description: "Track Every Prop Firm. One Unified Dashboard.",
+};
 
 export default function Home() {
   return (
@@ -48,11 +12,18 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-[#1e1e2e]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg accent-bg flex items-center justify-center">
-              <span className="text-black font-bold text-lg">P</span>
+          <div className="flex items-center gap-3">
+            {/* Mosaic Logo */}
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00f5c4] to-[#00d4aa] flex items-center justify-center">
+              <svg viewBox="0 0 40 40" className="w-7 h-7">
+                <path fill="#0a0a0a" d="M8 8h24v24H8z"/>
+                <path fill="#0a0a0a" d="M12 12h16v16H12z"/>
+                <path fill="#0a0a0a" d="M16 16h8v8h-8z"/>
+                <path fill="#0a0a0a" d="M20 8v8h8v-8z"/>
+                <path fill="#0a0a0a" d="M8 20h8v8H8z"/>
+              </svg>
             </div>
-            <span className="font-semibold text-xl">PropFlow</span>
+            <span className="font-semibold text-xl tracking-wide">MOSAIC</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#platform" className="nav-link">Platform</a>
@@ -68,13 +39,13 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="stat-badge">TRACK EVERY PROP FIRM</span>
+          <span className="stat-badge">POWERED BY MOSAIC</span>
           <h1 className="text-5xl md:text-6xl font-bold mt-6 mb-6 leading-tight">
-            One Unified <span className="accent">Dashboard</span>.
+            Track Every <span className="accent">Prop Firm</span>.
           </h1>
           <p className="text-xl text-[#a0a0a0] max-w-2xl mx-auto mb-10">
-            Track all your prop firm accounts in one place. Real-time analytics, 
-            performance tracking, and unified reporting.
+            One unified dashboard for all your prop firm accounts. Real-time analytics, 
+            performance tracking, and institutional-grade reporting.
           </p>
           <div className="flex items-center justify-center gap-4">
             <button className="accent-bg text-black px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition">
@@ -95,7 +66,14 @@ export default function Home() {
             <p className="text-[#a0a0a0]">Track performance across all major prop trading firms</p>
           </div>
           <div className="prop-firm-grid">
-            {propFirms.map((firm) => (
+            {[
+              "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
+              "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
+              "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
+              "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
+              "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
+              "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
+            ].map((firm) => (
               <div key={firm} className="prop-card">
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{firm}</span>
@@ -112,16 +90,24 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Everything You Need</h2>
-            <p className="text-[#a0a0a0] text-lg">Powerful features to manage your prop firm trading</p>
+            <p className="text-[#a0a0a0] text-lg">Institutional-grade tools for prop traders</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature) => (
-              <div key={feature.title} className="feature-card">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-[#a0a0a0]">{feature.description}</p>
-              </div>
-            ))}
+            <div className="feature-card">
+              <div className="text-4xl mb-4">📊</div>
+              <h3 className="text-xl font-semibold mb-3">Analytics Live</h3>
+              <p className="text-[#a0a0a0]">Real-time tracking of your prop firm accounts with live performance metrics.</p>
+            </div>
+            <div className="feature-card">
+              <div className="text-4xl mb-4">🖥️</div>
+              <h3 className="text-xl font-semibold mb-3">Platform</h3>
+              <p className="text-[#a0a0a0]">Unified dashboard connecting all your prop firm accounts in one place.</p>
+            </div>
+            <div className="feature-card">
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="text-xl font-semibold mb-3">Pricing</h3>
+              <p className="text-[#a0a0a0]">Simple, transparent pricing. No hidden fees. Cancel anytime.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -193,14 +179,20 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-[#1e1e2e]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded accent-bg flex items-center justify-center">
-              <span className="text-black font-bold text-sm">P</span>
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded bg-gradient-to-br from-[#00f5c4] to-[#00d4aa] flex items-center justify-center">
+              <svg viewBox="0 0 40 40" className="w-4 h-4">
+                <path fill="#0a0a0a" d="M8 8h24v24H8z"/>
+                <path fill="#0a0a0a" d="M12 12h16v16H12z"/>
+                <path fill="#0a0a0a" d="M16 16h8v8h-8z"/>
+                <path fill="#0a0a0a" d="M20 8v8h8v-8z"/>
+                <path fill="#0a0a0a" d="M8 20h8v8H8z"/>
+              </svg>
             </div>
-            <span className="font-medium">PropFlow</span>
+            <span className="font-medium">MOSAIC</span>
           </div>
           <div className="text-[#a0a0a0] text-sm">
-            © 2026 PropFlow. All rights reserved.
+            © 2026 Mosaic. All rights reserved.
           </div>
         </div>
       </footer>
