@@ -39,25 +39,25 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: '#0b0d14', borderBottom: '1px solid #1a1d2e' }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left - Hamburger + Logo */}
-          <div className="flex items-center gap-3">
-            <button className="text-white p-2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
-            <div className="flex items-center gap-2">
-              <Image 
-                src="/mosaic-logo-nav.png" 
-                alt="Mosaic" 
-                width={32} 
-                height={32}
-                className="rounded"
-              />
-              <span className="text-white font-medium text-lg">Mosaic</span>
-            </div>
+          {/* Left - Hamburger */}
+          <button className="text-white p-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          {/* Center - Logo */}
+          <div className="flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2">
+            <Image 
+              src="/mosaic-logo-nav.png" 
+              alt="Mosaic" 
+              width={32} 
+              height={32}
+              className="rounded"
+            />
+            <span className="text-white font-medium text-lg">Mosaic</span>
           </div>
           
           {/* Right - Login */}
