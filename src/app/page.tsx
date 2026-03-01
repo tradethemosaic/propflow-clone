@@ -35,22 +35,105 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="pt-40 pb-24 px-6 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
-          Track Every Prop Firm.<br />
-          One Unified Dashboard.
-        </h1>
-        <p className="text-xl mb-10 mx-auto" style={{ color: '#00f5c4', maxWidth: '500px' }}>
-          One unified dashboard.
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-black hover:opacity-90 transition" style={{ background: '#00f5c4' }}>
-            Start Free Trial
-          </button>
-          <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-white hover:bg-white/10 transition" style={{ border: '1px solid #2a2f45' }}>
-            View Demo
-          </button>
+      {/* Hero with Chart */}
+      <section className="pt-32 pb-20 px-6" style={{ background: '#0b0d14' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Track Every Prop Firm.<br />
+                One Unified Dashboard.
+              </h1>
+              <p className="text-xl mb-8" style={{ color: '#00f5c4' }}>
+                One unified dashboard.
+              </p>
+              <div className="flex items-center gap-4">
+                <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-black hover:opacity-90 transition" style={{ background: '#00f5c4' }}>
+                  Start Free Trial
+                </button>
+                <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-white hover:bg-white/10 transition" style={{ border: '1px solid #2a2f45' }}>
+                  View Demo
+                </button>
+              </div>
+            </div>
+            
+            {/* Right - Chart Graphic */}
+            <div className="relative">
+              <div className="p-6 rounded-2xl" style={{ background: '#111320' }}>
+                {/* Chart Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full" style={{ background: '#ef4444' }}></div>
+                    <div className="w-3 h-3 rounded-full" style={{ background: '#f59e0b' }}></div>
+                    <div className="w-3 h-3 rounded-full" style={{ background: '#22c55e' }}></div>
+                  </div>
+                  <span className="text-white/60 text-sm">Account Overview</span>
+                </div>
+                
+                {/* Chart Area */}
+                <div className="space-y-4">
+                  {/* Stat Row 1 */}
+                  <div className="flex items-center justify-between p-4 rounded-xl" style={{ background: '#0b0d14' }}>
+                    <div>
+                      <div className="text-white/60 text-sm">Total P&L</div>
+                      <div className="text-2xl font-bold" style={{ color: '#22c55e' }}>+$12,450</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-white/60 text-sm">This Month</div>
+                      <div className="text-white font-medium">+8.2%</div>
+                    </div>
+                  </div>
+                  
+                  {/* Stat Row 2 */}
+                  <div className="flex items-center justify-between p-4 rounded-xl" style={{ background: '#0b0d14' }}>
+                    <div>
+                      <div className="text-white/60 text-sm">Win Rate</div>
+                      <div className="text-2xl font-bold text-white">73%</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-white/60 text-sm">Trades</div>
+                      <div className="text-white font-medium">48</div>
+                    </div>
+                  </div>
+                  
+                  {/* Mini Chart */}
+                  <div className="p-4 rounded-xl" style={{ background: '#0b0d14' }}>
+                    <div className="text-white/60 text-sm mb-3">Performance</div>
+                    <div className="flex items-end gap-1 h-20">
+                      {[40, 55, 45, 60, 50, 70, 65, 80, 75, 90, 85, 95].map((h, i) => (
+                        <div 
+                          key={i} 
+                          className="flex-1 rounded-sm"
+                          style={{ 
+                            height: `${h}%`, 
+                            background: i > 8 ? '#00f5c4' : '#22c55e',
+                            opacity: 0.8
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Prop Firms Row */}
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="p-3 rounded-lg text-center" style={{ background: '#0b0d14' }}>
+                      <div className="text-white/60 text-xs">Topstep</div>
+                      <div className="text-white font-semibold" style={{ color: '#00f5c4' }}>+$2,100</div>
+                    </div>
+                    <div className="p-3 rounded-lg text-center" style={{ background: '#0b0d14' }}>
+                      <div className="text-white/60 text-xs">Apex</div>
+                      <div className="text-white font-semibold" style={{ color: '#22c55e' }}>+$4,350</div>
+                    </div>
+                    <div className="p-3 rounded-lg text-center" style={{ background: '#0b0d14' }}>
+                      <div className="text-white/60 text-xs">TPT</div>
+                      <div className="text-white font-semibold" style={{ color: '#22c55e' }}>+$6,000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
