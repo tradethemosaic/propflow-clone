@@ -39,37 +39,57 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: '#0b0d14', borderBottom: '1px solid #1a1d2e' }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Left - Hamburger */}
-          <button className="text-white p-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          
-          {/* Center - Logo */}
-          <div className="flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#00f5c4' }}>
-              <span className="text-black font-bold text-sm">M</span>
+          {/* Left - Hamburger + Logo */}
+          <div className="flex items-center gap-3">
+            <button className="text-white p-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+            <div className="flex items-center gap-2">
+              <Image 
+                src="/mosaic-logo-nav.png" 
+                alt="Mosaic" 
+                width={32} 
+                height={32}
+                className="rounded"
+              />
+              <span className="text-white font-medium text-lg">Mosaic</span>
             </div>
-            <span className="text-white font-semibold text-lg tracking-tight">Mosaic</span>
           </div>
           
-          {/* Right - Login & Sign Up */}
+          {/* Right - Login */}
           <div className="flex items-center gap-4">
             <a href="#" className="text-white/80 hover:text-white transition text-sm font-medium">Login</a>
-            <button className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-white/10 transition" style={{ border: '1px solid rgba(255,255,255,0.3)' }}>
-              Sign up
-            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-12 px-6" style={{ background: '#0b0d14' }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight" style={{ fontFamily: 'Georgia, serif', fontWeight: 300 }}>
+      {/* Hero Section with Fractal Background */}
+      <section className="pt-32 pb-12 px-6 relative overflow-hidden" style={{ 
+        background: '#0b0d14',
+        backgroundImage: `
+          radial-gradient(ellipse at 20% 80%, rgba(0, 245, 196, 0.08) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 60%),
+          linear-gradient(135deg, rgba(0, 245, 196, 0.02) 0%, transparent 50%),
+          linear-gradient(45deg, rgba(139, 92, 246, 0.02) 0%, transparent 50%)
+        `
+      }}>
+        {/* Fractal glass effect overlays */}
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: `
+            linear-gradient(105deg, transparent 40%, rgba(0, 245, 196, 0.03) 40%, rgba(0, 245, 196, 0.03) 41%, transparent 41%),
+            linear-gradient(165deg, transparent 60%, rgba(139, 92, 246, 0.03) 60%, rgba(139, 92, 246, 0.03) 61%, transparent 61%),
+            linear-gradient(225deg, transparent 30%, rgba(6, 182, 212, 0.02) 30%, rgba(6, 182, 212, 0.02) 31%, transparent 31%),
+            linear-gradient(285deg, transparent 70%, rgba(0, 245, 196, 0.02) 70%, rgba(0, 245, 196, 0.02) 71%, transparent 71%)
+          `
+        }}></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight" style={{ fontFamily: 'Roboto, Helvetica, Arial, sans-serif', fontWeight: 300 }}>
             Track Every Prop Firm.<br />
             One Unified Dashboard.
           </h1>
@@ -77,8 +97,8 @@ export default function Home() {
             One unified dashboard.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <button className="px-8 py-3.5 rounded-lg text-base font-medium text-white hover:bg-white/10 transition w-full sm:w-auto" style={{ border: '1px solid rgba(255,255,255,0.3)' }}>
-              Sign up
+            <button className="px-8 py-3.5 rounded-lg text-base font-medium text-black hover:opacity-90 transition w-full sm:w-auto" style={{ background: '#00f5c4' }}>
+              Get Started
             </button>
             <button className="px-8 py-3.5 rounded-lg text-base font-medium text-white hover:bg-white/10 transition w-full sm:w-auto" style={{ border: '1px solid rgba(255,255,255,0.3)' }}>
               Login
