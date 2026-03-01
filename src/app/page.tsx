@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ background: '#0b0d14' }}>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-[#1e1e2e]">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: '#0b0d14', borderBottom: '1px solid #1a1d2e' }}>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10">
               <Image 
@@ -23,14 +23,12 @@ export default function Home() {
                 className="rounded-lg"
               />
             </div>
-            <span className="font-semibold text-xl tracking-widest">MOSAIC</span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#platform" className="nav-link">01. Platform</a>
-            <a href="#meet" className="nav-link">02. Meet Mosaic</a>
-            <a href="#analytics" className="nav-link">Analytics</a>
-            <a href="#pricing" className="nav-link">03. Pricing</a>
-            <button className="accent-bg text-black px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
+          <div className="hidden md:flex items-center gap-10">
+            <a href="#platform" className="text-white/80 hover:text-white transition text-sm font-medium">Platform</a>
+            <a href="#meet" className="text-white/80 hover:text-white transition text-sm font-medium">About</a>
+            <a href="#pricing" className="text-white/80 hover:text-white transition text-sm font-medium">Pricing</a>
+            <button className="px-5 py-2.5 rounded-lg text-sm font-semibold text-black hover:opacity-90 transition" style={{ background: '#00f5c4' }}>
               Get Started
             </button>
           </div>
@@ -38,147 +36,151 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="stat-badge">POWERED BY MOSAIC</span>
-          <h1 className="text-5xl md:text-6xl font-bold mt-6 mb-6 leading-tight">
-            Track Every <span className="accent">Prop Firm</span>.
-          </h1>
-          <p className="text-xl text-[#a0a0a0] max-w-2xl mx-auto mb-10">
-            One unified dashboard for all your prop firm accounts. Real-time analytics, 
-            performance tracking, and institutional-grade reporting.
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            <button className="accent-bg text-black px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition">
-              Start Free Trial
-            </button>
-            <button className="border border-[#1e1e2e] px-8 py-3 rounded-lg font-semibold text-lg hover:border-[#00f5c4] transition">
-              View Demo
-            </button>
-          </div>
+      <section className="pt-40 pb-24 px-6 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
+          Track Every Prop Firm.<br />
+          One Unified Dashboard.
+        </h1>
+        <p className="text-xl mb-10 mx-auto" style={{ color: '#00f5c4', maxWidth: '500px' }}>
+          One unified dashboard.
+        </p>
+        <div className="flex items-center justify-center gap-4">
+          <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-black hover:opacity-90 transition" style={{ background: '#00f5c4' }}>
+            Start Free Trial
+          </button>
+          <button className="px-8 py-3.5 rounded-lg text-base font-semibold text-white hover:bg-white/10 transition" style={{ border: '1px solid #2a2f45' }}>
+            View Demo
+          </button>
         </div>
       </section>
 
       {/* Platform Section */}
-      <section id="platform" className="py-16 px-6 border-t border-[#1e1e2e]">
+      <section id="platform" className="py-16 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-[#00f5c4] text-sm font-medium">01. PLATFORM</span>
-            <h2 className="text-3xl font-bold mt-2">One Unified Dashboard</h2>
+          <div className="mb-10">
+            <span className="text-white/50 text-sm font-medium">01.</span>
+            <h2 className="text-2xl font-bold text-white mt-1">Platform</h2>
           </div>
-          <div className="prop-firm-grid">
-            {[
-              "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
-              "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
-              "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
-              "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
-              "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
-              "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
-            ].map((firm) => (
-              <div key={firm} className="prop-card">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">{firm}</span>
-                  <span className="text-xs text-[#00f5c4]">Live</span>
+          <div 
+            className="p-6 rounded-xl"
+            style={{ background: '#111320' }}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[
+                "ALPHA FUTURES", "APEX TRADER FUNDING", "BLUSKY", "BULENOX",
+                "ELITE TRADER FUNDING", "FAST TRACK TRADING", "FUNDED FUTURES FAMILY",
+                "FUNDED FUTURES NETWORK", "FUNDEDNEXT", "FUNDINGTICKS",
+                "LEGENDS TRADING", "LUCID TRADING", "MY FUNDED FUTURES", "PHIDIAS",
+                "PROPSHOPTRADER", "PURDIA", "TAKE PROFIT TRADER", "TENACITY TRADING",
+                "THE FUTURES DESK", "TICK TICK TRADER", "TOP ONE FUTURES", "TOPSTEP", "TRADEIFY"
+              ].map((firm) => (
+                <div key={firm} className="flex items-center justify-between p-3 rounded-lg" style={{ background: '#0b0d14' }}>
+                  <span className="text-white text-sm font-medium">{firm}</span>
+                  <span className="text-lg" style={{ color: '#00f5c4' }}>✓</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Meet Mosaic Section */}
-      <section id="meet" className="py-20 px-6 bg-[#0d0d12]">
+      <section id="meet" className="py-20 px-6" style={{ background: '#0b0d14' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#00f5c4] text-sm font-medium">02. MEET MOSAIC</span>
-            <h2 className="text-4xl font-bold mt-2">Institutional-Grade Trading Analytics</h2>
+          <div className="mb-12">
+            <span className="text-white/50 text-sm font-medium">02.</span>
+            <h2 className="text-2xl font-bold text-white mt-1">Meet Mosaic</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="feature-card">
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Analytics Live */}
+            <div className="p-6 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
-                <span className="text-[#00f5c4]">●</span>
+                <span className="text-white font-semibold">Analytics Live</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Real-Time Sync</h3>
-              <p className="text-[#a0a0a0]">Connect your prop firm accounts via Plaid for live data synchronization.</p>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium" style={{ color: '#00f5c4' }}>Live</span>
+                <span style={{ color: '#00f5c4' }}>●</span>
+              </div>
             </div>
-            <div className="feature-card">
+            {/* Live */}
+            <div className="p-6 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
-                <span className="text-[#00f5c4]">●</span>
+                <span className="text-white font-semibold">Live</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Analytics Live</h3>
-              <p className="text-[#a0a0a0]">Real-time tracking of your prop firm accounts with live performance metrics.</p>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium" style={{ color: '#00f5c4' }}>Live</span>
+                <span style={{ color: '#00f5c4' }}>●</span>
+              </div>
             </div>
-            <div className="feature-card">
+            {/* Plaid */}
+            <div className="p-6 rounded-xl" style={{ background: '#111320' }}>
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#00f5c4] text-sm font-medium">PLAID</span>
-                <span className="text-[#00f5c4]">●</span>
+                <span className="text-white font-semibold">Plaid</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Unified Reporting</h3>
-              <p className="text-[#a0a0a0]">One dashboard to rule them all. All your accounts, one view.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Analytics Section */}
-      <section id="analytics" className="py-20 px-6 border-y border-[#1e1e2e]">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold accent mb-2">23+</div>
-              <div className="text-[#a0a0a0]">Prop Firms</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold accent mb-2">500+</div>
-              <div className="text-[#a0a0a0]">Traders</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold accent mb-2">$10M+</div>
-              <div className="text-[#a0a0a0]">Tracked</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold accent mb-2">99.9%</div>
-              <div className="text-[#a0a0a0]">Uptime</div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium" style={{ color: '#00f5c4' }}>Live</span>
+                <span style={{ color: '#00f5c4' }}>●</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6">
+      <section id="pricing" className="py-20 px-6" style={{ background: '#0f121c' }}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-[#00f5c4] text-sm font-medium">03. PRICING</span>
-            <h2 className="text-4xl font-bold mt-2">Simple, Transparent Pricing</h2>
+          <div className="mb-12">
+            <span className="text-white/50 text-sm font-medium">03.</span>
+            <h2 className="text-2xl font-bold text-white mt-1">Pricing</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="prop-card p-8">
-              <h3 className="text-xl font-semibold mb-2">Free</h3>
-              <div className="text-4xl font-bold mb-4">$0<span className="text-lg text-[#a0a0a0] font-normal">/mo</span></div>
-              <ul className="text-[#a0a0a0] space-y-3 mb-8">
-                <li>✓ 2 Prop Firms</li>
-                <li>✓ Basic Analytics</li>
-                <li>✓ Email Support</li>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Free */}
+            <div className="p-8 rounded-xl" style={{ background: '#111320' }}>
+              <h3 className="text-xl font-semibold text-white mb-2">Free</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-white">$0</span>
+                <span className="text-white/50">/mo</span>
+              </div>
+              <ul className="text-white/70 space-y-3 mb-8">
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> 2 Prop Firms
+                </li>
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> Basic Analytics
+                </li>
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> Email Support
+                </li>
               </ul>
-              <button className="w-full border border-[#1e1e2e] py-3 rounded-lg font-medium hover:border-[#00f5c4] transition">
+              <button className="w-full py-3 rounded-lg font-medium text-white hover:bg-white/10 transition" style={{ border: '1px solid #2a2f45' }}>
                 Get Started
               </button>
             </div>
-            <div className="prop-card p-8 border-[#00f5c4]">
+            {/* Pro */}
+            <div className="p-8 rounded-xl" style={{ background: '#111320', border: '1px solid #00f5c4' }}>
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-semibold">Pro</h3>
-                <span className="stat-badge">POPULAR</span>
+                <h3 className="text-xl font-semibold text-white">Pro</h3>
+                <span className="px-2 py-1 rounded text-xs font-medium text-black" style={{ background: '#00f5c4' }}>POPULAR</span>
               </div>
-              <div className="text-4xl font-bold mb-4 accent">$19<span className="text-lg text-[#a0a0a0] font-normal">/mo</span></div>
-              <ul className="text-[#a0a0a0] space-y-3 mb-8">
-                <li>✓ Unlimited Firms</li>
-                <li>✓ Advanced Analytics</li>
-                <li>✓ Priority Support</li>
-                <li>✓ API Access</li>
+              <div className="mb-6">
+                <span className="text-4xl font-bold" style={{ color: '#00f5c4' }}>$19</span>
+                <span className="text-white/50">/mo</span>
+              </div>
+              <ul className="text-white/70 space-y-3 mb-8">
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> Unlimited Firms
+                </li>
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> Advanced Analytics
+                </li>
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> Priority Support
+                </li>
+                <li className="flex items-center gap-2">
+                  <span style={{ color: '#00f5c4' }}>✓</span> API Access
+                </li>
               </ul>
-              <button className="w-full accent-bg text-black py-3 rounded-lg font-medium hover:opacity-90 transition">
+              <button className="w-full py-3 rounded-lg font-medium text-black hover:opacity-90 transition" style={{ background: '#00f5c4' }}>
                 Start Free Trial
               </button>
             </div>
@@ -187,21 +189,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-[#1e1e2e]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="relative w-6 h-6">
-              <Image 
-                src="/logo.png" 
-                alt="Mosaic" 
-                width={24} 
-                height={24}
-                className="rounded"
-              />
-            </div>
-            <span className="font-medium tracking-widest">MOSAIC</span>
-          </div>
-          <div className="text-[#a0a0a0] text-sm">
+      <footer className="py-8 px-6" style={{ background: '#0b0d14', borderTop: '1px solid #1a1d2e' }}>
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="text-white/50 text-sm">
             © 2026 Mosaic. All rights reserved.
           </div>
         </div>
